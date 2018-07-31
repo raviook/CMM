@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div ng-controller="ngDemoController">
+   <table>
+       <tr>
+           <td>ID</td>
+           <td>Name</td>
+           <td>PhoneNumber</td>
+       </tr>
+       <tr ng-repeat="x in demoList">
+           <td>{{x.Id}}</td>
+           <td>{{x.Name}}</td>
+           <td>{{x.PhoneNumber}}</td>
+       </tr>
+       
+   </table>
+    
+    
+    {{ngappMessage}}
+</div>
