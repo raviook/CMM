@@ -160,6 +160,7 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -1030,6 +1031,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Demo\Index.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Member\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
