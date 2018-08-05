@@ -27,5 +27,6 @@ namespace Dao.Entities
     
         public DbSet<Demo> Demoes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Login> Logins { get; set; }
     }
 }

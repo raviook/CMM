@@ -13,11 +13,20 @@
           <Property Name="Name" Type="nvarchar" MaxLength="30" />
           <Property Name="PhoneNumber" Type="int" />
         </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EmailId" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -28,9 +37,11 @@
           <Property Name="FileUrl" Type="nvarchar" MaxLength="30" />
           <Property Name="MembershipType" Type="nvarchar" MaxLength="5" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="ShowOnHomePage" Type="bit" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CMMdbModelStoreContainer">
           <EntitySet Name="Demo" EntityType="Self.Demo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -48,6 +59,7 @@
         <EntityContainer Name="CMMdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Demoes" EntityType="Self.Demo" />
           <EntitySet Name="Users" EntityType="CMMdbModel.User" />
+          <EntitySet Name="Logins" EntityType="CMMdbModel.Login" />
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -64,6 +76,16 @@
           <Property Name="FileUrl" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="MembershipType" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ShowOnHomePage" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -83,6 +105,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CMMdbModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="MembershipType" ColumnName="MembershipType" />
                 <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
@@ -94,6 +117,16 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="CMMdbModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

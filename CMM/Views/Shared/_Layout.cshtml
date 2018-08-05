@@ -20,15 +20,16 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <div class="modal-body" ng-controller="ngLoginController">
+                    <form ng-submit="authentication()">
+                        <p ng-if="isuserValidmsg">{{message}}</p>
                         <div class="form-group">
-                            <label for="firstname">UserId</label>
-                            <input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="UserId">
+                            <label for="firstname" >LoginId</label>
+                            <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="UserId" ng-model="login.LoginId">
                         </div>
                         <div class="form-group">
-                            <label for="firstname">Password</label>
-                            <input type="password" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Password">
+                            <label for="firstname" >Password</label>
+                            <input type="password" class="form-control" aria-describedby="emailHelp" placeholder="Password" ng-model="login.Password">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -49,17 +50,17 @@
                     <form>
                         <div class="form-group">
                             <label for="firstname">First Name</label>
-                            <input type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter First Name">
+                            <input type="text" class="form-control" id="1firstname" aria-describedby="emailHelp" placeholder="Enter First Name">
 
                         </div>
                         <div class="form-group">
                             <label for="lastname">Last Name</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="lastname">
+                            <input type="text" class="form-control" id="1lastname" placeholder="lastname">
                         </div>
 
                         <div class="form-group">
                             <label for="Mob">Mob No:</label>
-                            <input type="number" class="form-control" id="Mob" placeholder="Mobile No">
+                            <input type="number" class="form-control" id="1Mob" placeholder="Mobile No">
                         </div>
 
 
@@ -90,11 +91,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#loginDiv">Login</a>
                     </li>
-
-                    <li class="nav-item">
-                        @Html.ActionLink("| Members Form", "Registration", "Member",new { }, new { @class = "nav-link" })
-                    </li>
-
                     <li class="nav-item">
 
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#guestRegistration">| Guest Registration</a>

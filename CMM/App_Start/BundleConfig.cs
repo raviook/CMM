@@ -15,7 +15,9 @@ namespace CMM
                         "~/Scripts/jquery.validate*"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.min.js",
-                       "~/ngScripts/Demo.js"));
+                       "~/ngScripts/Demo.js",
+                       "~/ngScripts/Home.js",
+                       "~/ngScripts/Dashboard.js"));
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

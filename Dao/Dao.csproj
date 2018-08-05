@@ -83,11 +83,14 @@
     <Compile Include="Entities\Demo.cs">
       <DependentUpon>CMMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Login.cs">
+      <DependentUpon>CMMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\User.cs">
       <DependentUpon>CMMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DemoModels\DemoDao.cs" />
-    <Compile Include="Models\DemoModels\IDemoDao.cs" />
+    <Compile Include="Models\UserModels\IUserDao.cs" />
+    <Compile Include="Models\UserModels\UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

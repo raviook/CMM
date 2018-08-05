@@ -20,8 +20,8 @@ namespace CMM.DependencyResolution {
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
     using Dao.Entities;
-    using Services.DemoServices;
-    using Dao.Models.DemoModels;
+    using Services.UserServices;
+    using Dao.Models.UserModels;
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
 
@@ -37,11 +37,11 @@ namespace CMM.DependencyResolution {
             For<CMMdbEntities>().Use(CMMContext);
             //For<IExample>().Use<Example>();
             //services
-            For<IDemoServices>().Use<DemoServices>();
 
+            For<IUserServices>().Use<UserServices>();
 
             //Dao
-            For<IDemoDao>().Use<DemoDao>();
+            For<IUserDao>().Use<UserDao>();
         }
 
         #endregion
