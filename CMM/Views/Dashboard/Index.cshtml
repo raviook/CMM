@@ -14,9 +14,103 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/angular")
 </head>
-<body ng-app="ngCMMApp">
-    <div ng-controller="ngDashboardController">
-        {{ngappMessage}}
-    </div>
+<body ng-app="ngCMMApp" class="container">
+    <h2>Member Details:</h2>
+    <p></p>
+    <section class="content" ng-controller="ngDashboardController">
+        <div class="row">
+            <div class="col-md-12">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form class="form-horizontal" role="form" ng-submit="createMember()">
+
+                            <div class="row">
+                                <div class="col">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.firstName">
+                                </div>
+                                <div class="col">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.lastName">
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>Mobile Number:</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.mobileNumber">
+                                </div>
+                                <div class="col">
+                                    <label>Email Id</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.emailId">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>Address:</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.address">
+                                </div>
+                                <div class="col">
+                                    <label>City </label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.city">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>StateProvince:</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.address">
+                                </div>
+                                <div class="col">
+                                    <label>Country</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.country">
+                                </div>
+                                <div class="col">
+                                    <label>ZipPostalCode</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.zipPostalCode">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>MemberShipId</label>
+                                    <input type="text" class="form-control input-sm" ng-model="member.membershipId">
+                                    <label class="text-primary" ng-if="true">Please Select Unique MemberShipId</label>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <select class="form-control" ng-options="option.name for option in membershipType.availableOptions track by option.id"
+                                            ng-model="member.membershipType.selectedOption"></select>
+                                </div>
+                                
+                                <div class="col">
+                                    <label>Show on HomePage?</label>
+                                    <input type="checkbox" ng-class="form-control"  ng-model="member.showOnHomePage">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <i class="fa fa-paperclip"></i> Select Profile Picture :
+                                    <input type="file" class="form-control" valid-file upload="uploadImage(image)" ng-model="image" />
+                                    <small>Maximum Size : 1MB</small>
+                                </div>
+                                <div class="col">
+                                    <i class="fa fa-paperclip"></i> Select Document :
+                                    <input type="file" class="form-control" valid-file upload="uploadFile(document)" ng-model="document" />
+                                    <small>Maximum Size : 5MB</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>

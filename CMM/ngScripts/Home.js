@@ -11,10 +11,8 @@ ngCMMApp.controller("ngLoginController", ["$scope", "$http", function ($scope, $
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         }
             ).then(function (response) {
-                alert(response.data);
                 if (response.data === 'null') {
                     $scope.isuserValidmsg = true;
-                    $scope.message = 'User/Password is Invalid!';
                 }
                 else {
                     window.location.href = "/Dashboard/index";

@@ -22,7 +22,7 @@
                 </div>
                 <div class="modal-body" ng-controller="ngLoginController">
                     <form ng-submit="authentication()">
-                        <p ng-if="isuserValidmsg">{{message}}</p>
+                        <p class="text-danger" ng-if="isuserValidmsg">LoginId/Password is Invalid!</p>
                         <div class="form-group">
                             <label for="firstname" >LoginId</label>
                             <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="UserId" ng-model="login.LoginId">
