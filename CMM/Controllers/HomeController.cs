@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Dao.Entities;
 using Services.UserServices;
 
@@ -22,8 +23,15 @@ namespace CMM.Controllers
         [HttpPost]
         public string Login(string formData)
         {
-
+            Session["Role"] = "Admin";
+            FormsAuthentication.SetAuthCookie("admin@gmail.com", true);
             return _userServices.UserAuthentication(formData);
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index");
         }
     }
 }
