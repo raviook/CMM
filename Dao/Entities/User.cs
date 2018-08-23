@@ -25,6 +25,6 @@ namespace Dao.Entities
         public string FileUrl { get; set; }
         public string MembershipType { get; set; }
         public System.DateTime Date { get; set; }
-        public bool ShowOnHomePage { get; set; }
+        public string ShowOnHomePage { get; set; }
     }
 }

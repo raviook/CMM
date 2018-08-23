@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonServices\CommonServices.cs" />
+    <Compile Include="CommonServices\ICommonServices.cs" />
+    <Compile Include="MemberServices\IMemberServices.cs" />
+    <Compile Include="MemberServices\MemberServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserServices\IUserServices.cs" />
     <Compile Include="UserServices\UserServices.cs" />

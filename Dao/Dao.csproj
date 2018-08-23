@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Address.cs">
+      <DependentUpon>CMMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\CMMModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,15 +83,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CMMModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Demo.cs">
-      <DependentUpon>CMMModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Login.cs">
       <DependentUpon>CMMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\User.cs">
       <DependentUpon>CMMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MemberModels\IMemberDao.cs" />
+    <Compile Include="Models\MemberModels\MemberDao.cs" />
     <Compile Include="Models\UserModels\IUserDao.cs" />
     <Compile Include="Models\UserModels\UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +106,8 @@
       <DependentUpon>CMMModel.edmx</DependentUpon>
       <LastGenOutput>CMMModel.cs</LastGenOutput>
     </Content>
+    <Content Include="ngScripts\Dashboard.js" />
+    <Content Include="ngScripts\Home.js" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

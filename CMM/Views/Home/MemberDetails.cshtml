@@ -1,0 +1,95 @@
+﻿@model Dao.Entities.User
+
+@{
+    ViewBag.Title = "MemberDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MemberDetails</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MembershipId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MembershipId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfilePicUrl)
+        </dt>
+
+        <dd>
+            <img class="card-img-top" src="~/ProfilePic/@Model.ProfilePicUrl" sizes="25,25,25" alt="@Model.FirstName">
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MembershipType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MembershipType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowOnHomePage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShowOnHomePage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

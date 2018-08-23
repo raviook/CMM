@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Dashboard</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/angular")
+</head>
+<body ng-app="ngCMMApp">
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!-- For Inserting another View-->
+        @RenderBody()
+        <!-- For Inserting another View-->
+        <!----------------------------------------------------------------------------------------------------------------->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="pull-right hidden-xs">
+                CMM
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2018 <a href="#">CMM</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

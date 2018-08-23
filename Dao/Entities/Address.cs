@@ -12,10 +12,13 @@ namespace Dao.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Demo
+    public partial class Address
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> PhoneNumber { get; set; }
+        public int AddressId { get; set; }
+        public string Country { get; set; }
+        public string StateProvince { get; set; }
+        public string City { get; set; }
+        public string Address1 { get; set; }
+        public string ZipPostalCode { get; set; }
     }
 }

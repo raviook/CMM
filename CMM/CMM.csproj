@@ -1033,9 +1033,15 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Member\Registration.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Dashboard\CreateMember.cshtml" />
+    <Content Include="Views\Home\demo.cshtml" />
+    <Content Include="Views\Home\MemberDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MemberDocuments\" />
     <Folder Include="Models\" />
+    <Folder Include="ProfilePic\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

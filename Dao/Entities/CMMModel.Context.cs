@@ -25,8 +25,8 @@ namespace Dao.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Demo> Demoes { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Login> Logins { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

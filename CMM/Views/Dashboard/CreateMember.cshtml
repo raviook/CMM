@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "CreateMember";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>CreateMember</h2>
+<section class="content" ng-controller="ngDashboardController">
+    <div class="row" ng-if="form1">
+        <div class="col-md-12">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form class="form-horizontal" role="form" ng-submit="createMember()">
+
+                    <div class="row">
+                        <div class="col">
+                            <label>First Name</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.firstName">
+                        </div>
+                        <div class="col">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.lastName">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Mobile Number:</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.mobileNumber">
+                        </div>
+                        <div class="col">
+                            <label>Email Id</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.emailId">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Address:</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.address">
+                        </div>
+                        <div class="col">
+                            <label>City </label>
+                            <input type="text" class="form-control input-sm" ng-model="member.city">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>StateProvince:</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.stateProvince">
+                        </div>
+                        <div class="col">
+                            <label>Country</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.country">
+                        </div>
+                        <div class="col">
+                            <label>ZipPostalCode</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.zipPostalCode">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>MemberShipId</label>
+                            <input type="text" class="form-control input-sm" ng-model="member.membershipId">
+                            <label class="text-primary" ng-if="true">Please Select Unique MemberShipId</label>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select class="form-control" ng-model="member.membershipType">
+                                <option ng-repeat="x in membershipType">{{x}}</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label>Show on HomePage?</label>
+                            <input type="checkbox" ng-class="form-control" ng-model="member.showOnHomePage">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="form2">
+        <div class="col-md-12">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col" ng-if="!isPicUploaded">
+                        <i class="fa fa-paperclip"></i> Profile Pic :
+                        <input type="file" class="form-control" valid-file upload="uploadProfilePic(file)" ng-model="file" />
+                        <small>Maximum Size : 5MB</small>
+                    </div>
+                    <div class="col" ng-if="isPicUploaded">
+                        <h2 class="bg-danger">Profile Pic Uploaded Successfully!</h2>
+                    </div>
+                    <div class="col">
+                        <div class="col" ng-if="!isFileUploaded">
+                            <i class="fa fa-paperclip"></i> Attachment :
+                            <input type="file" class="form-control" valid-file upload="uploadFile(file)" ng-model="file" />
+                            <small>Maximum Size : 5MB</small>
+                        </div>
+                        <div class="col" ng-if="isFileUploaded">
+                            <h2 class="bg-danger">Document Uploaded Successfully!</h2>
+                            @Html.ActionLink("Go To Dashboard", "Index")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

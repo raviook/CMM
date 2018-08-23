@@ -18,14 +18,26 @@ namespace CMM.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            CMMdbEntities db = new CMMdbEntities();
+            var users = db.Users.ToList();
+            return View(users);
+        }
+        public ActionResult MemberDetails(string memberId)
+        {
+            CMMdbEntities db = new CMMdbEntities();
+            var member = db.Users.Where(m => m.MembershipId == memberId).FirstOrDefault();
+            return View(member);
         }
         [HttpPost]
         public string Login(string formData)
         {
-            Session["Role"] = "Admin";
-            FormsAuthentication.SetAuthCookie("admin@gmail.com", true);
-            return _userServices.UserAuthentication(formData);
+            
+            var response= _userServices.UserAuthentication(formData);
+            if (response != "null")
+            {
+                Session["Authorized"] = "True";
+            }
+            return response;
         }
         public ActionResult Logout()
         {

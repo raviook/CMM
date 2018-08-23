@@ -1,61 +1,71 @@
 ﻿
 
-ngCMMApp.controller("ngDashboardController", ["$scope", "$http", function ($scope, $http) {
-
-    $scope.membershipType = {
-        availableOptions: [
-            { id: '1', name: 'TypeA' },
-            { id: '2', name: 'TypeB' }
-        ],
-        selectedOption: { id: '1', name: 'TypeA' }
-    };
-    $scope.uploadImage = function (element) {
-        conaole.log(element);
-        var formData = new FormData();
-        formData.append("uploadedFile", element);
-        $http({
-            method: 'POST',
-            url: '',
-            data: formData,
-            headers: {
-                'Content-Type': undefined
-            }
-        }).then(function (response) {
-            $scope.attachmentPath = response.data;
-            console.log(response.data);
-        },
-            function () {
-                alert('something going wrong while uploading');
-            });
-
-    }
-
-    $scope.uploadFile = function (element) {
-        conaole.log(element);
-        var formData = new FormData();
-        formData.append("uploadedFile", element);
-        $http({
-            method: 'POST',
-            url: '',
-            data: formData,
-            headers: {
-                'Content-Type': undefined
-            }
-        }).then(function (response) {
-            $scope.attachmentPath = response.data;
-            console.log(response.data);
-        },
-            function () {
-                alert('something going wrong while uploading');
-            });
-
-    }
+ngCMMApp.controller("ngDashboardController", ["$scope", "$http", function ($scope, $http, FileUploadService) {
+    $scope.form1 = true;
+    $scope.form2 = false;
+    $scope.membershipType = ['Members', 'Excol Members']; 
     $scope.ngappMessage = 'ng of Dashboard is working';
     $scope.member = { showOnHomePage: false };
     $scope.createMember = function () {
-        var gh = $scope.member;
-        console.log(gh);
+        $http({
+            method: 'POST',
+            url: '/Dashboard/CreateMember',
+            data: 'memberDetails=' + JSON.stringify($scope.member),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(function (response) {
+            $scope.form1 = false;
+            $scope.form2 = true;
+            $scope.membershipId = response.data;
+        },
+function (response) {
+    alert('Something went wrong Please try again!');
+});
     }
+
+    $scope.uploadProfilePic = function (element) {
+        var formData = new FormData();
+        formData.append("uploadedFile", element);
+        formData.append("memberId", $scope.membershipId);
+        $http({
+            method: 'POST',
+            url: '/Dashboard/ProfilePicUploader',
+            data: formData,
+            headers: {
+                'Content-Type': undefined
+            }
+        }).then(function (response) {
+            $scope.attachmentPath = response.data;
+            if (response.data == $scope.membershipId) {
+                $scope.isPicUploaded = true;
+            }
+        },
+            function () {
+                alert('something going wrong while uploading');
+            });
+
+    }
+    $scope.uploadFile = function (element) {
+        var formData = new FormData();
+        formData.append("uploadedFile", element);
+        formData.append("memberId", $scope.membershipId);
+        $http({
+            method: 'POST',
+            url: '/Dashboard/MemberDocumentUploader',
+            data: formData,
+            headers: {
+                'Content-Type': undefined
+            }
+        }).then(function (response) {
+            if (response.data == $scope.membershipId) {
+                $scope.isFileUploaded = true;
+            }
+        },
+            function () {
+                alert('something going wrong while uploading');
+            });
+
+    }
+
 
 }]);
 
@@ -75,3 +85,4 @@ ngCMMApp.directive('validFile', [function () {
         }
     }
 }]);
+
